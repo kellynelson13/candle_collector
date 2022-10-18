@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.views.generic.edit import CreateView
 from .models import Candle
 
 # Create your views here.
@@ -31,3 +32,8 @@ def candles_index(request):
 def candles_detail(request, candle_id):
     candle = Candle.objects.get(id=candle_id)
     return render(request, 'candles/detail.html', { 'candle': candle })
+
+class CandleCreate(CreateView):
+    model = Candle
+    fields = '__all__'
+    
