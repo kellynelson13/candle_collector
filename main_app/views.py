@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Candle
 
 # Create your views here.
@@ -36,4 +36,13 @@ def candles_detail(request, candle_id):
 class CandleCreate(CreateView):
     model = Candle
     fields = '__all__'
+
+class CandleUpdate(UpdateView):
+    model = Candle
+    fields = ['scent', 'color', 'ounces', 'burn_time']
+
+class CandleDelete(DeleteView):
+    model = Candle
+    success_url = '/candles/'
+
     

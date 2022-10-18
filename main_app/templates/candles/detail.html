@@ -10,6 +10,10 @@
     <p>Size: {{ candle.ounces }}oz</p>
     <p>Burn Time: {{candle.burn_time}} hours</p>
   </div>
+  <div class="card-action">
+    <a href="{% url 'candles_update' candle.id %}">Edit</a>
+    <a href="{% url 'candles_delete' candle.id %}">Delete</a>
+  </div>
 </div>
 
 {% endblock %}
