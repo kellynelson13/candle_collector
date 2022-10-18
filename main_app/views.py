@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Candle
+from .forms import BurningForm
 
 # Create your views here.
 def home(request):
@@ -31,7 +32,10 @@ def candles_index(request):
 
 def candles_detail(request, candle_id):
     candle = Candle.objects.get(id=candle_id)
-    return render(request, 'candles/detail.html', { 'candle': candle })
+    burning_form = BurningForm()
+    return render(request, 'candles/detail.html', { 
+        'candle': candle, 'burning_form': burning_form 
+        })
 
 class CandleCreate(CreateView):
     model = Candle
