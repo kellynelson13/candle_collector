@@ -34,4 +34,4 @@ class Burning(models.Model):
 
     def __str__(self):
     # Nice method for obtaining the friendly value of a Field.choice
-        return f"This candle in the {self.get_room_display()} was burning for {self.duration} hours on {self.date}."
+        return f"{self.candle} in the {self.get_room_display()} was burning for {self.duration} hours on {self.date}."
