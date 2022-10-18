@@ -27,3 +27,7 @@ def about(request):
 def candles_index(request):
     candles = Candle.objects.all()
     return render(request, 'candles/index.html', { 'candles': candles})
+
+def candles_detail(request, candle_id):
+    candle = Candle.objects.get(id=candle_id)
+    return render(request, 'candles/detail.html', { 'candle': candle })

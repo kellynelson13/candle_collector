@@ -4,11 +4,13 @@
 
 {% for candle in candles %}
 <div class="card">
-  <div class="card-content">
-    <span class="card-title">{{ candle.scent }}</span>
-    <p>Color: {{ candle.color }}</p>
-    <p>Size: {{ candle.ounces }}</p>
-    <p>Burn Time: {{candle.burn_time}}</p>
-  </div>
+  <a href="{% url 'detail' candle.id %}">
+    <div class="card-content">
+      <span class="card-title">{{ candle.scent }}</span>
+      <p>Color: {{ candle.color }}</p>
+      <p>Size: {{ candle.ounces }}</p>
+      <p>Burn Time: {{candle.burn_time}}</p>
+    </div>
+  </a>
 </div>
 {% endfor %} {% endblock %}

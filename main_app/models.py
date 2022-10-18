@@ -8,4 +8,4 @@ class Candle(models.Model):
     burn_time = models.IntegerField()
 
     def __str__(self):
-        return self.name
+        return self.scent
