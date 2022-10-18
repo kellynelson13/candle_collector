@@ -18,15 +18,15 @@
     />
   </head>
   <body>
-    <header class="navbar-fixed">
+    <header class="navbar-fixed" >
       <nav>
-        <div class="nav-wrapper">
+        <div class="nav-wrapper teal lighten-1" >
           <ul>
             <li>
-              <a href="/" class="left brand-logo"> CandleCollector</a>
+              <a href="/" class="right brand-logo"> CandleCollector</a>
             </li>
           </ul>
-          <ul class="right">
+          <ul class="left">
             <li><a href="/about">About</a></li>
             <li><a href="{% url 'candle_create' %}">Add a Candle</a></li>
             <li><a href="/candles">View All My Candles</a></li>
@@ -35,7 +35,7 @@
       </nav>
     </header>
     <main class="container">{% block content %} {% endblock %}</main>
-    <footer class="page-footer">
+    <footer class="page-footer teal lighten-1">
       <div class="right">All Rights Reserved, © 2019 Candle Collector</div>
     </footer>
   </body>
