@@ -35,3 +35,6 @@ class Burning(models.Model):
     def __str__(self):
     # Nice method for obtaining the friendly value of a Field.choice
         return f"{self.candle} in the {self.get_room_display()} was burning for {self.duration} minutes on {self.date}."
+
+    class Meta:
+        ordering = ['-date']

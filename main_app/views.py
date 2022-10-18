@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Candle
 from .forms import BurningForm
@@ -36,6 +36,18 @@ def candles_detail(request, candle_id):
     return render(request, 'candles/detail.html', { 
         'candle': candle, 'burning_form': burning_form 
         })
+
+def add_burning(request, candle_id):
+  # create the ModelForm using the data in request.POST
+  form = BurningForm(request.POST)
+  # validate the form
+  if form.is_valid():
+    # don't save the form to the db until it
+    # has the candle_id assigned
+    new_burning = form.save(commit=False)
+    new_burning.candle_id = candle_id
+    new_burning.save()
+    return redirect('detail', candle_id=candle_id)
 
 class CandleCreate(CreateView):
     model = Candle

@@ -9,4 +9,6 @@ urlpatterns = [
     path('candle/create/', views.CandleCreate.as_view(), name='candle_create'),
     path('candle/<int:pk>/update/', views.CandleUpdate.as_view(), name='candles_update'),
     path('candle/<int:pk>/delete/', views.CandleDelete.as_view(), name='candles_delete'),
+    path('candles/<int:candle_id>/add_burning/', views.add_burning, name='add_burning'),
+
 ]
