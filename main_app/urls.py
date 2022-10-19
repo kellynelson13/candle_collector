@@ -10,5 +10,9 @@ urlpatterns = [
     path('candle/<int:pk>/update/', views.CandleUpdate.as_view(), name='candles_update'),
     path('candle/<int:pk>/delete/', views.CandleDelete.as_view(), name='candles_delete'),
     path('candles/<int:candle_id>/add_burning/', views.add_burning, name='add_burning'),
+    path('enjoyers/', views.EnjoyerList.as_view(), name='enjoyers_index'),
+    path('enjoyers/<int:pk>/', views.EnjoyerDetail.as_view(), name='enjoyers_detail'),
+    path('enjoyers/create/', views.EnjoyerCreate.as_view(), name='enjoyers_create'),
+
 
 ]

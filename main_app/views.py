@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
+from django.views.generic import ListView
+from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from .models import Candle
+from .models import Candle, Enjoyer
 from .forms import BurningForm
 
 # Create your views here.
@@ -62,3 +64,22 @@ class CandleDelete(DeleteView):
     success_url = '/candles/'
 
     
+class EnjoyerCreate(CreateView):
+    model = Enjoyer
+    fields = ('name', 'mood')
+
+# class EnjoyerUpdate(UpdateView):
+#     model = Enjoyer
+#     fields = ('name', 'mood')
+
+# class EnjoyerDelete(DeleteView):
+#     model = Enjoyer
+#     success_url = '/enjoyers/'
+
+class EnjoyerDetail(DetailView):
+    model = Enjoyer
+    template_name = 'enjoyers/detail.html'
+
+class EnjoyerList(ListView):
+    model = Enjoyer
+    template_name = 'enjoyers/index.html'

@@ -7,6 +7,16 @@ ROOM = (
     ('D', 'Dining Room')
 )
 
+class Enjoyer(models.Model):
+    name = models.CharField(max_length=100)
+    mood = models.CharField(max_length=150)
+
+    def __str__(self):
+        return self.name
+
+    def get_absolute_url(self):
+        return reverse('enjoyers_detail', kwargs={'pk': self.id})
+
 # Create your models here.
 class Candle(models.Model):
     scent = models.CharField(max_length=75)
