@@ -68,13 +68,13 @@ class EnjoyerCreate(CreateView):
     model = Enjoyer
     fields = ('name', 'mood')
 
-# class EnjoyerUpdate(UpdateView):
-#     model = Enjoyer
-#     fields = ('name', 'mood')
+class EnjoyerUpdate(UpdateView):
+    model = Enjoyer
+    fields = ('name', 'mood')
 
-# class EnjoyerDelete(DeleteView):
-#     model = Enjoyer
-#     success_url = '/enjoyers/'
+class EnjoyerDelete(DeleteView):
+    model = Enjoyer
+    success_url = '/enjoyers/'
 
 class EnjoyerDetail(DetailView):
     model = Enjoyer

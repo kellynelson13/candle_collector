@@ -13,6 +13,7 @@ urlpatterns = [
     path('enjoyers/', views.EnjoyerList.as_view(), name='enjoyers_index'),
     path('enjoyers/<int:pk>/', views.EnjoyerDetail.as_view(), name='enjoyers_detail'),
     path('enjoyers/create/', views.EnjoyerCreate.as_view(), name='enjoyers_create'),
-
+    path('enjoyers/<int:pk>/update/', views.EnjoyerUpdate.as_view(), name='enjoyers_update'),
+    path('enjoyers/<int:pk>/delete/', views.EnjoyerDelete.as_view(), name='enjoyers_delete'),
 
 ]

@@ -11,7 +11,8 @@
             <span class="card-title">{{ enjoyer.name }} is feeling {{enjoyer.mood}}</span>
         </div>
         <div class="card-action">
-            
+            <a href="{% url 'enjoyers_update' enjoyer.id %}">Edit</a>
+            <a href="{% url 'enjoyers_delete' enjoyer.id %}">Delete</a>
         </div>
     </a>
 </div>
