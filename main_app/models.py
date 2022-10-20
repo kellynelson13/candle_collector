@@ -23,6 +23,7 @@ class Candle(models.Model):
     color = models.CharField(max_length=75)
     ounces = models.IntegerField()
     burn_time = models.IntegerField()
+    enjoyers = models.ManyToManyField(Enjoyer)
 
     def __str__(self):
         return self.scent

@@ -15,5 +15,5 @@ urlpatterns = [
     path('enjoyers/create/', views.EnjoyerCreate.as_view(), name='enjoyers_create'),
     path('enjoyers/<int:pk>/update/', views.EnjoyerUpdate.as_view(), name='enjoyers_update'),
     path('enjoyers/<int:pk>/delete/', views.EnjoyerDelete.as_view(), name='enjoyers_delete'),
-
+    path('candles/<int:candle_id>/assoc_enjoyer/<int:enjoyer_id>/', views.assoc_enjoyer, name='assoc_enjoyer'),
 ]

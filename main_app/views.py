@@ -34,9 +34,11 @@ def candles_index(request):
 
 def candles_detail(request, candle_id):
     candle = Candle.objects.get(id=candle_id)
+    enjoyers_candle_doesnt_have = Enjoyer.objects.exclude(id__in = candle.enjoyers.all().values_list('id'))
     burning_form = BurningForm()
     return render(request, 'candles/detail.html', { 
-        'candle': candle, 'burning_form': burning_form 
+        'candle': candle, 'burning_form': burning_form, 
+        'enjoyers': enjoyers_candle_doesnt_have 
         })
 
 def add_burning(request, candle_id):
@@ -51,9 +53,14 @@ def add_burning(request, candle_id):
     new_burning.save()
     return redirect('detail', candle_id=candle_id)
 
+def assoc_enjoyer(request, candle_id, enjoyer_id):
+  # Note that you can pass a enjoyer's id instead of the whole object
+  Candle.objects.get(id=candle_id).enjoyers.add(enjoyer_id)
+  return redirect('detail', candle_id=candle_id)
+
 class CandleCreate(CreateView):
     model = Candle
-    fields = '__all__'
+    fields = ['scent', 'color', 'ounces', 'burn_time']
 
 class CandleUpdate(UpdateView):
     model = Candle
